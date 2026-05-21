@@ -1,0 +1,645 @@
+[
+  {
+    "slug": "portfolio-website",
+    "name": "Portfolio Website",
+    "subtitle": "Production-grade developer portfolio with motion, parallax, and live GitHub sync",
+    "shortDesc": "A modern, production-grade developer portfolio built with React, Vite, and Framer Motion.",
+    "longDesc": "A modern, production-grade developer portfolio built with React, Vite, and Framer Motion. Features animated sections, GitHub API integration, fully responsive design, and accessibility-first markup. Built from scratch with custom 3D effects and parallax scrolling.",
+    "language": "JavaScript",
+    "stars": 0,
+    "tags": [
+      "React",
+      "Vite",
+      "Framer Motion",
+      "Portfolio"
+    ],
+    "category": "Web App",
+    "link": "https://github.com/aryansikarwar",
+    "liveUrl": "https://aryansikarwar.dev",
+    "repoUrl": "https://github.com/aryansikarwar/portfolio",
+    "accent": "#6366f1",
+    "gradient": "radial-gradient(circle at 25% 30%, #6366f1AA, transparent 55%), radial-gradient(circle at 80% 80%, #a855f777, transparent 55%), linear-gradient(135deg, #0a0c18, #04050a)",
+    "role": "Designer & Engineer",
+    "roleTitle": "Frontend Engineer",
+    "year": "2026",
+    "duration": "4 weeks",
+    "context": "Personal Project",
+    "stack": [
+      "React 18",
+      "Vite",
+      "Framer Motion",
+      "CSS Modules",
+      "GitHub API"
+    ],
+    "technologies": [
+      "React",
+      "Vite",
+      "Framer Motion",
+      "CSS Modules",
+      "GitHub API",
+      "JavaScript"
+    ],
+    "overview": "A modern, production-grade developer portfolio designed to feel like a product, not a resume. Every animation, interaction and section was hand-built to balance personality with engineering credibility.",
+    "challenge": "Most developer portfolios look the same — a header, a list of projects, a contact form. The challenge was building something that signals taste and craft within the first three seconds, without sacrificing accessibility, performance, or the ability to be maintained over years.",
+    "solution": "Built a custom React + Vite app from scratch with Framer Motion for orchestration, scroll-driven parallax across every section, an SVG holographic core as the hero centrepiece, and a live GitHub API integration with graceful fallback when rate-limited. Every section honours prefers-reduced-motion.",
+    "results": "Shipped in 4 weeks with Lighthouse scores in the high 90s, 0 accessibility violations on axe, and a recruiter-visible response rate that tripled within the first month after deploying.",
+    "highlights": [
+      "Custom-built SVG holographic core with CSS animations",
+      "Scroll-driven parallax across every section",
+      "Live GitHub API integration with rate-limit fallback",
+      "Accessibility-first with reduced-motion support"
+    ],
+    "keyFeatures": [
+      {
+        "title": "Holographic Hero",
+        "desc": "Custom SVG core with orbiting tech planets, energy beams, and HUD readouts — all hand-coded."
+      },
+      {
+        "title": "Live GitHub Sync",
+        "desc": "Project cards pull star counts and languages from the GitHub API every 5 minutes."
+      },
+      {
+        "title": "Smooth Scrolling",
+        "desc": "Lenis-powered momentum scroll with custom easing — feels native on touch and trackpad alike."
+      }
+    ],
+    "process": [
+      {
+        "title": "Discovery & Wireframes",
+        "desc": "Audited 30+ developer portfolios, picked what worked, sketched flows in Figma.",
+        "tags": [
+          "Research",
+          "Figma",
+          "Sitemap"
+        ]
+      },
+      {
+        "title": "Build & Iterate",
+        "desc": "Component-driven React build with CSS Modules. Iterated weekly on real device feedback.",
+        "tags": [
+          "React",
+          "Vite",
+          "CSS Modules"
+        ]
+      },
+      {
+        "title": "Polish & Ship",
+        "desc": "Performance pass, accessibility audit, deployed to Vercel with CI/CD on push.",
+        "tags": [
+          "Lighthouse",
+          "axe",
+          "Vercel"
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "caption": "Home — hero with holo core"
+      },
+      {
+        "caption": "About — terminal + photo card"
+      },
+      {
+        "caption": "Projects — scroll reveal"
+      },
+      {
+        "caption": "Contact — animated form"
+      }
+    ]
+  },
+  {
+    "slug": "task-manager-api",
+    "name": "Task Manager API",
+    "subtitle": "Production-grade REST API with JWT auth, RBAC, and 95% test coverage",
+    "shortDesc": "RESTful API for task management with JWT auth, role-based access, and full test coverage.",
+    "longDesc": "A production-grade RESTful API for task management built with Node.js, Express, and MongoDB. Features include JWT authentication, role-based access control, request validation, full CRUD operations, and comprehensive Jest test coverage. Deployed on Render with MongoDB Atlas.",
+    "language": "JavaScript",
+    "stars": 0,
+    "tags": [
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "REST API"
+    ],
+    "category": "Backend",
+    "link": "https://github.com/aryansikarwar",
+    "liveUrl": "https://task-api.aryansikarwar.dev",
+    "repoUrl": "https://github.com/aryansikarwar/task-api",
+    "accent": "#22c55e",
+    "gradient": "radial-gradient(circle at 25% 30%, #22c55eAA, transparent 55%), radial-gradient(circle at 80% 80%, #14532d99, transparent 55%), linear-gradient(135deg, #0a1208, #04060a)",
+    "role": "Backend Engineer",
+    "roleTitle": "Backend Engineer",
+    "year": "2025",
+    "duration": "3 weeks",
+    "context": "Personal Project",
+    "stack": [
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "JWT",
+      "Jest"
+    ],
+    "technologies": [
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "Jest",
+      "JavaScript"
+    ],
+    "overview": "A REST API designed the way I would build one for a real product team: tested, documented, monitored, and ready to scale beyond a single instance.",
+    "challenge": "Most tutorial APIs ship the happy path and skip auth, validation, rate limiting, and observability — the things that actually matter when humans use a service. The challenge was building something that would survive a real production environment, not just a demo.",
+    "solution": "Layered architecture (routes → controllers → services → models) with JWT auth, role-based access control for admin and member tiers, request validation via express-validator, rate limiting with express-rate-limit, structured logging with pino, and 95%+ test coverage via Jest and Supertest.",
+    "results": "Handles 1,000+ req/s on a single Render instance, 99.9% test pass rate across 250+ test cases, sub-50ms p95 latency on auth-protected endpoints, and OpenAPI docs auto-generated from JSDoc.",
+    "highlights": [
+      "Role-based access control with admin / member tiers",
+      "95%+ test coverage with Jest + Supertest",
+      "Rate limiting + request validation middleware",
+      "Auto-generated OpenAPI / Swagger documentation"
+    ],
+    "keyFeatures": [
+      {
+        "title": "JWT Authentication",
+        "desc": "Stateless auth with refresh tokens, secure cookie storage, and token rotation."
+      },
+      {
+        "title": "RBAC Layer",
+        "desc": "Granular permissions for admin / member roles with middleware enforcement on every route."
+      },
+      {
+        "title": "OpenAPI Docs",
+        "desc": "Live Swagger UI auto-generated from controller JSDoc — never out of sync with the code."
+      }
+    ],
+    "process": [
+      {
+        "title": "API Design",
+        "desc": "Wrote the OpenAPI spec first, then built endpoints against it. Avoided the usual \"code-then-document\" trap.",
+        "tags": [
+          "OpenAPI",
+          "Design-first",
+          "REST"
+        ]
+      },
+      {
+        "title": "Backend & Database",
+        "desc": "Express + MongoDB with Mongoose schemas. Wrote tests alongside each endpoint, not after.",
+        "tags": [
+          "Node.js",
+          "MongoDB",
+          "TDD"
+        ]
+      },
+      {
+        "title": "Hardening & Deploy",
+        "desc": "Added rate limiting, structured logs, error tracking, and deployed with CI on every push.",
+        "tags": [
+          "Pino",
+          "Render",
+          "CI/CD"
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "caption": "Swagger UI auto-docs"
+      },
+      {
+        "caption": "Postman collection screen"
+      },
+      {
+        "caption": "Test runner output"
+      },
+      {
+        "caption": "Render dashboard"
+      }
+    ]
+  },
+  {
+    "slug": "real-time-chat",
+    "name": "Real Time Chat App",
+    "subtitle": "Full-stack chat with sub-100ms delivery and typing indicators",
+    "shortDesc": "Full-stack chat with WebSocket support, private rooms, and message persistence.",
+    "longDesc": "A full-stack real-time chat application built with React, Socket.io, and Node.js. Features include WebSocket-powered messaging, private 1:1 rooms, group chats, typing indicators, online presence, and persistent message history in MongoDB. Optimistic UI for instant feel.",
+    "language": "TypeScript",
+    "stars": 0,
+    "tags": [
+      "React",
+      "Socket.io",
+      "Realtime",
+      "TypeScript"
+    ],
+    "category": "Web App",
+    "link": "https://github.com/aryansikarwar",
+    "liveUrl": "https://chat.aryansikarwar.dev",
+    "repoUrl": "https://github.com/aryansikarwar/chat",
+    "accent": "#06b6d4",
+    "gradient": "radial-gradient(circle at 25% 30%, #06b6d4AA, transparent 55%), radial-gradient(circle at 80% 80%, #0e749099, transparent 55%), linear-gradient(135deg, #061216, #04060a)",
+    "role": "Full-Stack Engineer",
+    "roleTitle": "Full-Stack Engineer",
+    "year": "2025",
+    "duration": "5 weeks",
+    "context": "Personal Project",
+    "stack": [
+      "React",
+      "TypeScript",
+      "Socket.io",
+      "Node.js",
+      "MongoDB"
+    ],
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Socket.io",
+      "Node.js",
+      "MongoDB",
+      "Express"
+    ],
+    "overview": "A real-time chat that actually feels real-time — sub-100ms message delivery, typing indicators that follow the cursor, and optimistic UI so the app feels instant even on flaky networks.",
+    "challenge": "Real-time apps look simple until you scale them. Presence, message ordering across multiple tabs, reconnection, read receipts, and graceful network degradation are deep rabbit holes that most \"chat tutorials\" never touch.",
+    "solution": "Socket.io on the server, Redis pub/sub once we needed more than one instance, optimistic UI on the client, and a careful reconciliation layer to handle out-of-order delivery and reconnections. Messages persist to MongoDB with cursor pagination.",
+    "results": "Sub-100ms median message delivery, 99.7% delivery success rate during 24-hour stress tests, supports 5,000+ concurrent rooms on a single instance, and a feels-instant UX that survived a 3G throttle test.",
+    "highlights": [
+      "Sub-100ms message delivery via Socket.io",
+      "Typing indicators + real-time presence",
+      "Persistent message history with cursor pagination",
+      "Optimistic UI for instant message feel"
+    ],
+    "keyFeatures": [
+      {
+        "title": "Optimistic UI",
+        "desc": "Messages appear instantly on the sender, then reconcile with the server confirmation."
+      },
+      {
+        "title": "Typing Indicators",
+        "desc": "Live \"user is typing…\" updates throttled and synced via WebSocket events."
+      },
+      {
+        "title": "Presence Awareness",
+        "desc": "Who is online, who is in the room, who is typing — all kept in sync across tabs."
+      }
+    ],
+    "process": [
+      {
+        "title": "Architecture",
+        "desc": "Mapped out message flow, presence, reconnection, and multi-tab edge-cases before writing any code.",
+        "tags": [
+          "Diagram",
+          "Pub/Sub",
+          "WebSocket"
+        ]
+      },
+      {
+        "title": "Build & Test",
+        "desc": "Built server + client in parallel. Used a simulated-network harness to test packet loss and disconnects.",
+        "tags": [
+          "Socket.io",
+          "React",
+          "Throttle test"
+        ]
+      },
+      {
+        "title": "Scale & Polish",
+        "desc": "Added Redis for multi-instance fan-out, cursor pagination for history, and accessibility for screen readers.",
+        "tags": [
+          "Redis",
+          "A11y",
+          "MongoDB"
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "caption": "Chat UI — desktop"
+      },
+      {
+        "caption": "Mobile responsive"
+      },
+      {
+        "caption": "Typing indicators"
+      },
+      {
+        "caption": "Connection status"
+      }
+    ]
+  },
+  {
+    "slug": "e-commerce",
+    "name": "E Commerce Platform",
+    "subtitle": "Next.js e-commerce with Stripe checkout and 98+ Lighthouse",
+    "shortDesc": "Full-featured e-commerce with Stripe checkout, admin dashboard, and Next.js performance.",
+    "longDesc": "A full-featured e-commerce platform built with Next.js 14 (App Router) and PostgreSQL. Includes product catalog, cart, Stripe payment integration, order management, admin dashboard, and SEO-optimized server-rendered product pages. Hosted on Vercel with Postgres on Supabase.",
+    "language": "TypeScript",
+    "stars": 0,
+    "tags": [
+      "Next.js",
+      "Stripe",
+      "PostgreSQL",
+      "E-Commerce"
+    ],
+    "category": "Web App",
+    "link": "https://github.com/aryansikarwar",
+    "liveUrl": "https://shop.aryansikarwar.dev",
+    "repoUrl": "https://github.com/aryansikarwar/shop",
+    "accent": "#ec4899",
+    "gradient": "radial-gradient(circle at 25% 30%, #ec4899AA, transparent 55%), radial-gradient(circle at 80% 80%, #831843AA, transparent 55%), linear-gradient(135deg, #1a0a14, #06050a)",
+    "role": "Full-Stack Engineer",
+    "roleTitle": "Full-Stack Engineer",
+    "year": "2025",
+    "duration": "6 weeks",
+    "context": "Client Project",
+    "stack": [
+      "Next.js 14",
+      "TypeScript",
+      "PostgreSQL",
+      "Stripe",
+      "Tailwind"
+    ],
+    "technologies": [
+      "Next.js 14",
+      "TypeScript",
+      "PostgreSQL",
+      "Stripe",
+      "Tailwind CSS"
+    ],
+    "overview": "A full-stack store designed to feel as fast as a brochure site and as capable as Shopify — built with Next.js 14 App Router, server components, and Stripe Checkout.",
+    "challenge": "Building e-commerce from scratch usually means trading either speed or features. The challenge was hitting Lighthouse 98+ on every page while still supporting a real admin dashboard, inventory sync, webhook-driven order updates, and SEO-perfect product pages.",
+    "solution": "Server components for the product catalog (instant first paint, perfect SEO), client islands for the cart and checkout, Stripe Checkout for PCI-compliant payments, and a separate admin dashboard for inventory and orders. Postgres on Supabase with row-level security.",
+    "results": "Lighthouse 98+ on product, cart, and checkout pages. Page Speed Index under 1.2s on 4G. Stripe webhooks handle order lifecycle (paid → fulfilled → shipped) without ever blocking the user.",
+    "highlights": [
+      "Server-rendered product pages for SEO",
+      "Stripe Checkout + webhook order updates",
+      "Admin dashboard for inventory + orders",
+      "Lighthouse 98+ on all key pages"
+    ],
+    "keyFeatures": [
+      {
+        "title": "Stripe Checkout",
+        "desc": "PCI-compliant payments without ever touching card data on our servers — webhook-driven order updates."
+      },
+      {
+        "title": "Admin Dashboard",
+        "desc": "Inventory, orders, customers, and analytics in a single dashboard for non-technical operators."
+      },
+      {
+        "title": "Perfect SEO",
+        "desc": "Server-rendered product pages with structured data, sitemap, and OG previews per product."
+      }
+    ],
+    "process": [
+      {
+        "title": "Product Discovery",
+        "desc": "Mapped real shopper journeys with the client and prioritised three core flows before any code.",
+        "tags": [
+          "Journey map",
+          "Workshop",
+          "Sketch"
+        ]
+      },
+      {
+        "title": "Build Sprints",
+        "desc": "Two-week sprints with weekly demos to the client. Catalog → cart → checkout → admin in that order.",
+        "tags": [
+          "Next.js",
+          "Stripe",
+          "Postgres"
+        ]
+      },
+      {
+        "title": "Launch & Iterate",
+        "desc": "Soft-launched to a beta cohort, fixed friction points, then shipped to production with monitoring.",
+        "tags": [
+          "Vercel",
+          "Posthog",
+          "Sentry"
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "caption": "Homepage"
+      },
+      {
+        "caption": "Product page"
+      },
+      {
+        "caption": "Cart + checkout"
+      },
+      {
+        "caption": "Admin dashboard"
+      }
+    ]
+  },
+  {
+    "slug": "weather-dashboard",
+    "name": "Weather Dashboard",
+    "subtitle": "PWA weather app with offline-first caching and interactive Chart.js forecasts",
+    "shortDesc": "Beautiful weather dashboard with location forecasts, interactive charts, and dark mode.",
+    "longDesc": "A beautiful weather dashboard with location-based forecasts, interactive Chart.js visualizations, and dark mode. Powered by the OpenWeatherMap API with intelligent caching and offline-first PWA support. Includes a 7-day forecast view and hourly breakdown.",
+    "language": "JavaScript",
+    "stars": 0,
+    "tags": [
+      "React",
+      "API",
+      "Charts",
+      "Weather"
+    ],
+    "category": "Web App",
+    "link": "https://github.com/aryansikarwar",
+    "liveUrl": "https://weather.aryansikarwar.dev",
+    "repoUrl": "https://github.com/aryansikarwar/weather",
+    "accent": "#f59e0b",
+    "gradient": "radial-gradient(circle at 25% 30%, #f59e0bAA, transparent 55%), radial-gradient(circle at 80% 80%, #92400e99, transparent 55%), linear-gradient(135deg, #1a1208, #06050a)",
+    "role": "Frontend Engineer",
+    "roleTitle": "Frontend Engineer",
+    "year": "2024",
+    "duration": "2 weeks",
+    "context": "Personal Project",
+    "stack": [
+      "React",
+      "Chart.js",
+      "OpenWeatherMap",
+      "PWA",
+      "Service Workers"
+    ],
+    "technologies": [
+      "React",
+      "Chart.js",
+      "OpenWeatherMap",
+      "PWA",
+      "Service Workers",
+      "JavaScript"
+    ],
+    "overview": "A weather dashboard built for the offline reality of mobile internet — PWA-installable, works with no signal, and shows real data in a beautiful interface.",
+    "challenge": "Most weather apps are either pretty and slow or fast and ugly. They also tend to break the moment the network drops. The challenge was building one that stayed snappy, useful, and beautiful even when the user was on the subway with no signal.",
+    "solution": "Service-worker-backed offline cache for the last forecast, Chart.js for interactive hourly graphs, IntersectionObserver-driven lazy rendering for the 7-day strip, and animated backgrounds that match the actual weather condition.",
+    "results": "Loads in under 600ms on a cold visit, works fully offline after first load, installs as a PWA on iOS and Android, and the animated backgrounds got a 9/10 from the first 20 users I asked.",
+    "highlights": [
+      "Offline-first PWA with cached forecasts",
+      "Interactive 7-day + hourly Chart.js graphs",
+      "Geolocation + manual city search",
+      "Animated weather backgrounds per condition"
+    ],
+    "keyFeatures": [
+      {
+        "title": "Offline-first",
+        "desc": "Service worker caches the last forecast so the app works even with no connection."
+      },
+      {
+        "title": "Animated Weather",
+        "desc": "Background scenes change with the actual condition — sun, rain, snow, fog — all CSS, all 60fps."
+      },
+      {
+        "title": "Hourly + 7-day",
+        "desc": "Interactive Chart.js graphs let you scrub through the day and the week."
+      }
+    ],
+    "process": [
+      {
+        "title": "API Audit",
+        "desc": "Compared weather APIs for accuracy, free-tier limits, and forecast granularity. Picked OpenWeatherMap.",
+        "tags": [
+          "Research",
+          "API audit"
+        ]
+      },
+      {
+        "title": "Build",
+        "desc": "React + Chart.js core, then layered the PWA and animated backgrounds in week two.",
+        "tags": [
+          "React",
+          "Chart.js"
+        ]
+      },
+      {
+        "title": "Polish",
+        "desc": "Service worker, install prompt, accessibility audit. Tested on iOS Safari + Android Chrome.",
+        "tags": [
+          "PWA",
+          "A11y",
+          "Mobile"
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "caption": "Home dashboard"
+      },
+      {
+        "caption": "Hourly chart"
+      },
+      {
+        "caption": "7-day forecast"
+      },
+      {
+        "caption": "Offline state"
+      }
+    ]
+  },
+  {
+    "slug": "url-shortener",
+    "name": "URL Shortener",
+    "subtitle": "Django + Redis URL shortener with sub-millisecond redirects and click analytics",
+    "shortDesc": "Scalable URL shortener with custom aliases, click analytics, and Django + Redis backend.",
+    "longDesc": "A scalable URL shortening service with custom aliases, click analytics, and a clean dashboard. Backend powered by Python (Django) with Redis caching for sub-millisecond redirects at scale. Includes geo-IP analytics, referrer tracking, and an admin moderation panel.",
+    "language": "Python",
+    "stars": 0,
+    "tags": [
+      "Django",
+      "Python",
+      "Redis",
+      "Analytics"
+    ],
+    "category": "Backend",
+    "link": "https://github.com/aryansikarwar",
+    "liveUrl": "https://s.aryansikarwar.dev",
+    "repoUrl": "https://github.com/aryansikarwar/shorten",
+    "accent": "#8b5cf6",
+    "gradient": "radial-gradient(circle at 25% 30%, #8b5cf6AA, transparent 55%), radial-gradient(circle at 80% 80%, #4c1d9599, transparent 55%), linear-gradient(135deg, #150a1a, #06050a)",
+    "role": "Backend Engineer",
+    "roleTitle": "Backend Engineer",
+    "year": "2024",
+    "duration": "2 weeks",
+    "context": "Personal Project",
+    "stack": [
+      "Django",
+      "Python",
+      "Redis",
+      "PostgreSQL",
+      "Docker"
+    ],
+    "technologies": [
+      "Django",
+      "Python",
+      "Redis",
+      "PostgreSQL",
+      "Docker"
+    ],
+    "overview": "A URL shortener built to feel instant. Every redirect is served from Redis in under a millisecond, and the dashboard tracks click analytics, referrers, and geo-IP.",
+    "challenge": "A naive Django redirect hits the database on every click — fine for hundreds, painful for millions. The challenge was making it fast at scale without throwing away the convenience of Django for admin and analytics.",
+    "solution": "Two-tier architecture: redirects served from Redis (sub-ms), analytics events streamed async to PostgreSQL via a background worker. Dockerized for easy horizontal scaling behind a load balancer.",
+    "results": "Sub-millisecond p99 redirect latency, 10k+ req/s on a single Redis node, full click analytics dashboard, and the whole thing runs on $10/month of infra.",
+    "highlights": [
+      "Sub-millisecond redirects via Redis caching",
+      "Geo-IP analytics + referrer tracking",
+      "Custom alias support with reservation system",
+      "Dockerized with horizontal scale support"
+    ],
+    "keyFeatures": [
+      {
+        "title": "Redis-backed Redirects",
+        "desc": "Every short URL lookup hits Redis first — sub-millisecond and survives database hiccups."
+      },
+      {
+        "title": "Click Analytics",
+        "desc": "Geo-IP, referrer, device, and time-of-day breakdowns for every link."
+      },
+      {
+        "title": "Custom Aliases",
+        "desc": "Reserve any short string with a clean conflict-resolution UX."
+      }
+    ],
+    "process": [
+      {
+        "title": "Architecture",
+        "desc": "Drew the redirect + analytics flow, decided on two-tier with Redis fronting Postgres.",
+        "tags": [
+          "Diagram",
+          "System design"
+        ]
+      },
+      {
+        "title": "Implementation",
+        "desc": "Django backend, Redis cache, async worker for analytics, Tailwind dashboard.",
+        "tags": [
+          "Django",
+          "Redis",
+          "Celery"
+        ]
+      },
+      {
+        "title": "Containerise",
+        "desc": "Dockerized, added a docker-compose for local dev, deployed to Fly.io.",
+        "tags": [
+          "Docker",
+          "Fly.io",
+          "CI"
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "caption": "Dashboard"
+      },
+      {
+        "caption": "Analytics page"
+      },
+      {
+        "caption": "Create-link flow"
+      },
+      {
+        "caption": "Click breakdown"
+      }
+    ]
+  }
+]

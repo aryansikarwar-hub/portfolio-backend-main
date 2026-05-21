@@ -1,0 +1,81 @@
+[
+  {
+    "title": "Meta Front-End Developer",
+    "issuer": "Meta · Coursera",
+    "issueDate": "Mar 2026",
+    "credentialUrl": "https://coursera.org/verify/example",
+    "skills": [
+      "React",
+      "JavaScript",
+      "UI/UX",
+      "Responsive Design"
+    ],
+    "category": "Course"
+  },
+  {
+    "title": "AWS Certified Cloud Practitioner",
+    "issuer": "Amazon Web Services",
+    "issueDate": "Jan 2026",
+    "credentialUrl": "https://aws.amazon.com/verify/example",
+    "skills": [
+      "AWS",
+      "Cloud",
+      "EC2",
+      "S3",
+      "IAM"
+    ],
+    "category": "Course"
+  },
+  {
+    "title": "TypeScript Deep Dive",
+    "issuer": "Frontend Masters",
+    "issueDate": "Nov 2025",
+    "credentialUrl": "",
+    "skills": [
+      "TypeScript",
+      "Type Theory",
+      "Generics",
+      "Advanced Patterns"
+    ],
+    "category": "Course"
+  },
+  {
+    "title": "MongoDB for Developers",
+    "issuer": "MongoDB University",
+    "issueDate": "Sep 2025",
+    "credentialUrl": "",
+    "skills": [
+      "MongoDB",
+      "NoSQL",
+      "Aggregation",
+      "Indexing"
+    ],
+    "category": "Course"
+  },
+  {
+    "title": "Docker & Kubernetes Essentials",
+    "issuer": "KodeKloud",
+    "issueDate": "Jul 2025",
+    "credentialUrl": "",
+    "skills": [
+      "Docker",
+      "Kubernetes",
+      "DevOps",
+      "CI/CD"
+    ],
+    "category": "Course"
+  },
+  {
+    "title": "System Design Fundamentals",
+    "issuer": "Educative",
+    "issueDate": "May 2025",
+    "credentialUrl": "",
+    "skills": [
+      "System Design",
+      "Architecture",
+      "Scalability",
+      "Distributed Systems"
+    ],
+    "category": "Course"
+  }
+]

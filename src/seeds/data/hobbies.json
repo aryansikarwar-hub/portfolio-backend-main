@@ -1,0 +1,370 @@
+[
+  {
+    "slug": "reading",
+    "name": "Reading",
+    "title": "READING",
+    "title2": "DEEP DIVES",
+    "icon": "Book",
+    "accent": "#6366f1",
+    "color": "#6366f1",
+    "place": "BOOKS · 30+/YR",
+    "role": "Books & long-form",
+    "language": "BOOKS · 30+/YR",
+    "year": "∞",
+    "gradient": "radial-gradient(circle at 25% 30%, #6366f1cc, transparent 55%), radial-gradient(circle at 80% 80%, #4338ca99, transparent 55%), linear-gradient(135deg, #0a0c18, #04050a)",
+    "shortDesc": "Reading deeply across software books, sci-fi, and biographies. Currently working through DDIA, Project Hail Mary, and Walter Isaacson's biographies.",
+    "description": "Reading deeply across software books, sci-fi, and biographies. Currently working through DDIA, Project Hail Mary, and Walter Isaacson's biographies.",
+    "highlights": [
+      "Reading is the cheapest form of mentorship",
+      "Cross-domain reading → non-obvious analogies later",
+      "One-quote-per-book log I revisit yearly"
+    ],
+    "tags": [
+      "Tech",
+      "Sci-fi",
+      "Biographies",
+      "Essays"
+    ],
+    "stats": [
+      {
+        "label": "Books / yr",
+        "value": "30+"
+      },
+      {
+        "label": "Current read",
+        "value": "DDIA"
+      },
+      {
+        "label": "Format",
+        "value": "Print > Kindle"
+      }
+    ],
+    "body": [
+      "Reading is the cheapest form of mentorship. The best engineers I look up to read constantly — across software but also outside it. Mental models, history, biographies, fiction. Cross-domain reading is how I find non-obvious analogies that show up later in my work.",
+      "On the technical side, 'Designing Data-Intensive Applications' rewired how I think about systems. 'The Pragmatic Programmer' taught me about craft. Anything by Robert Martin keeps me honest about clean code.",
+      "On the non-technical side: Walter Isaacson's biographies, Yuval Noah Harari, Andy Weir's sci-fi. I keep a running list of 'one quote from every book' that I revisit each year."
+    ]
+  },
+  {
+    "slug": "photography",
+    "name": "Photography",
+    "title": "PHOTO",
+    "title2": "GRAPHY",
+    "icon": "Camera",
+    "accent": "#06b6d4",
+    "color": "#06b6d4",
+    "place": "STREET · TRAVEL",
+    "role": "Street & travel",
+    "language": "STREET · TRAVEL",
+    "year": "6 YR",
+    "gradient": "radial-gradient(circle at 25% 30%, #06b6d4cc, transparent 55%), radial-gradient(circle at 80% 80%, #0e749099, transparent 55%), linear-gradient(135deg, #061216, #04060a)",
+    "shortDesc": "Street and travel photography is how I notice details I would otherwise walk past. Mostly mirrorless, often phone — the best camera is the one with you.",
+    "description": "Street and travel photography is how I notice details I would otherwise walk past. Mostly mirrorless, often phone — the best camera is the one with you.",
+    "highlights": [
+      "Photography slows me down — opposite of building software",
+      "You can't iterate after the moment is gone",
+      "One prime lens, always — gear is the easy part"
+    ],
+    "tags": [
+      "Street",
+      "Travel",
+      "Architecture",
+      "Available light"
+    ],
+    "stats": [
+      {
+        "label": "Years shooting",
+        "value": "6+"
+      },
+      {
+        "label": "Style",
+        "value": "Street + Travel"
+      },
+      {
+        "label": "Gear",
+        "value": "Mirrorless + iPhone"
+      }
+    ],
+    "body": [
+      "Photography slows me down. It is the opposite of building software in the best way — you cannot iterate after the moment is gone. You have to be present, see the frame, press the shutter.",
+      "I shoot mostly street and travel. Architecture sometimes. I love light hitting buildings in the late afternoon, strangers waiting at bus stops, the way a city wakes up.",
+      "Gear-wise: a small mirrorless body and one prime lens most days. Phone the rest of the time. I think people obsess over gear because they want to skip the part where they learn to see — which is unfortunately the entire skill."
+    ]
+  },
+  {
+    "slug": "gaming",
+    "name": "Gaming",
+    "title": "GAMING",
+    "title2": "INDIE",
+    "icon": "Gamepad2",
+    "accent": "#8b5cf6",
+    "color": "#8b5cf6",
+    "place": "IMMERSIVE SIMS",
+    "role": "Indie & immersive sims",
+    "language": "IMMERSIVE SIMS",
+    "year": "∞",
+    "gradient": "radial-gradient(circle at 25% 30%, #8b5cf6cc, transparent 55%), radial-gradient(circle at 80% 80%, #4c1d9599, transparent 55%), linear-gradient(135deg, #150a1a, #06050a)",
+    "shortDesc": "Indie games and immersive sims especially. Recently obsessed with Outer Wilds, Disco Elysium, and anything with great level design.",
+    "description": "Indie games and immersive sims especially. Recently obsessed with Outer Wilds, Disco Elysium, and anything with great level design.",
+    "highlights": [
+      "Outer Wilds = doing actual science inside a game",
+      "Speedruns taught me optimization is creative",
+      "Indie devs take real risks AAA never will"
+    ],
+    "tags": [
+      "Indie titles",
+      "Immersive sims",
+      "Speedruns",
+      "Narrative"
+    ],
+    "stats": [
+      {
+        "label": "Favourite",
+        "value": "Outer Wilds"
+      },
+      {
+        "label": "Genre",
+        "value": "Indie / Sim"
+      },
+      {
+        "label": "Platform",
+        "value": "PC + Switch"
+      }
+    ],
+    "body": [
+      "I play games for the same reason I read books — to inhabit other systems of thought. Indie games scratch this itch better than AAA most of the time. They take real risks.",
+      "Outer Wilds is the closest I have ever come to feeling like I am doing actual science inside a game. Disco Elysium is the best writing in the medium. Inside, Limbo, Celeste, Hollow Knight — masterpieces of game feel.",
+      "I also fall into speedrun rabbit holes occasionally. Watching someone break a game elegantly is a kind of art. It is also how I learned that 'optimization' is a creative act, not a mechanical one."
+    ]
+  },
+  {
+    "slug": "music",
+    "name": "Music & Guitar",
+    "title": "MUSIC",
+    "title2": "GUITAR",
+    "icon": "Music",
+    "accent": "#ec4899",
+    "color": "#ec4899",
+    "place": "SYNTHWAVE · LO-FI",
+    "role": "Listener & learner",
+    "language": "SYNTHWAVE · LO-FI",
+    "year": "2 YR",
+    "gradient": "radial-gradient(circle at 25% 30%, #ec4899cc, transparent 55%), radial-gradient(circle at 80% 80%, #83184399, transparent 55%), linear-gradient(135deg, #1a0a14, #06050a)",
+    "shortDesc": "Synthwave, lo-fi, and instrumental hip-hop while coding. Picked up the guitar two years ago — still terrible, still enjoying it.",
+    "description": "Synthwave, lo-fi, and instrumental hip-hop while coding. Picked up the guitar two years ago — still terrible, still enjoying it.",
+    "highlights": [
+      "Music while coding is non-negotiable",
+      "Picked up guitar at zero — slow but consistent",
+      "One new chord per week, the point is showing up"
+    ],
+    "tags": [
+      "Synthwave",
+      "Lo-fi",
+      "Guitar",
+      "Hip-hop"
+    ],
+    "stats": [
+      {
+        "label": "Code soundtrack",
+        "value": "Synthwave"
+      },
+      {
+        "label": "Instrument",
+        "value": "Acoustic"
+      },
+      {
+        "label": "Years playing",
+        "value": "2"
+      }
+    ],
+    "body": [
+      "Music while coding is non-negotiable. I cycle between synthwave (when I need momentum), lo-fi (for long writing sessions), and instrumental hip-hop (for everything else). Lyrics distract me, so almost everything I work to is instrumental.",
+      "I picked up an acoustic guitar two years ago because I wanted a hobby that did not involve a screen. I am still terrible. But I can play three or four songs end-to-end, which is more than I expected.",
+      "Trying to learn one new chord per week. Some weeks I forget. The point is showing up, not the technique. It is a different kind of patience than software."
+    ]
+  },
+  {
+    "slug": "hiking",
+    "name": "Hiking & Travel",
+    "title": "HIKING",
+    "title2": "TRAVEL",
+    "icon": "Mountain",
+    "accent": "#22c55e",
+    "color": "#22c55e",
+    "place": "TRAILS · QUARTERLY",
+    "role": "Walker, light packer",
+    "language": "TRAILS · QUARTERLY",
+    "year": "∞",
+    "gradient": "radial-gradient(circle at 25% 30%, #22c55ecc, transparent 55%), radial-gradient(circle at 80% 80%, #14532d99, transparent 55%), linear-gradient(135deg, #0a1208, #04060a)",
+    "shortDesc": "Long walks beat the gym, always. Trying to visit one new place every quarter — Himalayan foothills, Goa back-roads, the Western Ghats in monsoon.",
+    "description": "Long walks beat the gym, always. Trying to visit one new place every quarter — Himalayan foothills, Goa back-roads, the Western Ghats in monsoon.",
+    "highlights": [
+      "Clarity only shows up after 5km of walking",
+      "One new place every quarter — no maps in my head",
+      "Travel teaches you what is non-negotiable"
+    ],
+    "tags": [
+      "Trails",
+      "Solo travel",
+      "Local food",
+      "Slow travel"
+    ],
+    "stats": [
+      {
+        "label": "Walks / week",
+        "value": "4+"
+      },
+      {
+        "label": "New place",
+        "value": "/ quarter"
+      },
+      {
+        "label": "Pack weight",
+        "value": "Light"
+      }
+    ],
+    "body": [
+      "There is a kind of clarity that only shows up after 5km of walking. The first kilometer your head is still in whatever you left behind. By the third you are present. By the fifth you start solving problems you did not know you were carrying.",
+      "I try to do one new place every quarter — somewhere I have never been, somewhere I do not have a map of in my head. Recent favourites: the Himalayan foothills near Manali, the back-roads of north Goa, the Western Ghats during monsoon.",
+      "Travel teaches you what is non-negotiable. Three days into a trip you find out what you actually need to live well, and almost none of it is what you packed."
+    ]
+  },
+  {
+    "slug": "side-projects",
+    "name": "Side Projects",
+    "title": "SIDE",
+    "title2": "PROJECTS",
+    "icon": "Code2",
+    "accent": "#f59e0b",
+    "color": "#f59e0b",
+    "place": "WEEKEND BUILDS",
+    "role": "Weekend builder",
+    "language": "WEEKEND BUILDS",
+    "year": "40+",
+    "gradient": "radial-gradient(circle at 25% 30%, #f59e0bcc, transparent 55%), radial-gradient(circle at 80% 80%, #92400e99, transparent 55%), linear-gradient(135deg, #1a1208, #06050a)",
+    "shortDesc": "Building small tools for problems I have. Some die after a weekend, some grow into real things. The graveyard is the point.",
+    "description": "Building small tools for problems I have. Some die after a weekend, some grow into real things. The graveyard is the point.",
+    "highlights": [
+      "Side projects = how I actually learn",
+      "Most die, that is fine — the dead ones teach the most",
+      "Solve a personal problem, ship in 48 hours, let it die in public"
+    ],
+    "tags": [
+      "CLI tools",
+      "Extensions",
+      "Tiny SaaS",
+      "Hacks"
+    ],
+    "stats": [
+      {
+        "label": "Started",
+        "value": "40+"
+      },
+      {
+        "label": "Shipped",
+        "value": "~12"
+      },
+      {
+        "label": "Still alive",
+        "value": "4"
+      }
+    ],
+    "body": [
+      "Side projects are how I learn. Books and tutorials only get me so far — eventually I have to scrape my own knuckles on a real problem.",
+      "Most of my side projects die. That is fine. The dead ones taught me what to avoid, what is harder than it looks, what I do not actually enjoy. The graveyard is the point.",
+      "Some grow up. A few CLI tools I built for myself ended up being used by friends, then strangers. A browser extension I wrote in a weekend got 500 users I never expected."
+    ]
+  },
+  {
+    "slug": "coffee",
+    "name": "Coffee",
+    "title": "COFFEE",
+    "title2": "POUR-OVER",
+    "icon": "Coffee",
+    "accent": "#a16207",
+    "color": "#a16207",
+    "place": "3 CUPS · DAILY",
+    "role": "Pour-over devotee",
+    "language": "3 CUPS · DAILY",
+    "year": "∞",
+    "gradient": "radial-gradient(circle at 25% 30%, #a16207cc, transparent 55%), radial-gradient(circle at 80% 80%, #78350f99, transparent 55%), linear-gradient(135deg, #1a1408, #06050a)",
+    "shortDesc": "Pour-over, V60, the works. Three cups a day, all morning. Yes, I have opinions about beans. No, I will not start a roastery.",
+    "description": "Pour-over, V60, the works. Three cups a day, all morning. Yes, I have opinions about beans. No, I will not start a roastery.",
+    "highlights": [
+      "V60 pour-over — the ritual is the point",
+      "Ethiopia mornings, Colombia afternoons",
+      "Embarrassingly nice grinder, never going to be a roaster"
+    ],
+    "tags": [
+      "Pour-over",
+      "Single origin",
+      "Light roasts",
+      "Mornings"
+    ],
+    "stats": [
+      {
+        "label": "Cups / day",
+        "value": "3"
+      },
+      {
+        "label": "Method",
+        "value": "V60"
+      },
+      {
+        "label": "Roast",
+        "value": "Light"
+      }
+    ],
+    "body": [
+      "Three cups, all before noon. Pour-over with a V60 most days. The ritual is part of the point — grinding beans, the bloom, the pour. It is a five-minute meditation that happens to produce coffee.",
+      "I rotate between two or three single-origin roasters depending on the season. Ethiopia for bright mornings, Colombia when I need something rounder, Indonesia when it is cold.",
+      "I will not become a roaster. I will not start a cafe. But yes, I do own a scale, a gooseneck kettle, and an embarrassingly nice grinder."
+    ]
+  },
+  {
+    "slug": "writing",
+    "name": "Writing",
+    "title": "WRITING",
+    "title2": "NOTES",
+    "icon": "Book",
+    "accent": "#06b6d4",
+    "color": "#06b6d4",
+    "place": "BLOG · TIL",
+    "role": "TIL logger, post writer",
+    "language": "BLOG · TIL",
+    "year": "2021→",
+    "gradient": "radial-gradient(circle at 25% 30%, #06b6d4cc, transparent 55%), radial-gradient(circle at 80% 80%, #0f57399, transparent 55%), linear-gradient(135deg, #06121a, #04060a)",
+    "shortDesc": "Posts, TIL logs, project notes. Writing forces me to actually understand what I think I know — it's the cheapest form of debugging your own mind.",
+    "description": "Posts, TIL logs, project notes. Writing forces me to actually understand what I think I know — it's the cheapest form of debugging your own mind.",
+    "highlights": [
+      "Writing = debugging your own mind",
+      "Daily TIL log compounds into a real reference",
+      "Write the post you wish you found six months ago"
+    ],
+    "tags": [
+      "Blog posts",
+      "TIL",
+      "READMEs",
+      "Notes-as-thinking"
+    ],
+    "stats": [
+      {
+        "label": "TIL entries",
+        "value": "600+"
+      },
+      {
+        "label": "Posts / yr",
+        "value": "~12"
+      },
+      {
+        "label": "Habit since",
+        "value": "2021"
+      }
+    ],
+    "body": [
+      "Writing is debugging your own mind. The minute I try to put something in a sentence, I find the holes. Writing is how I figure out if I actually understand something or just have the vibe of understanding it.",
+      "I keep a daily TIL log — 'today I learned' — even if it is small. Two sentences is fine. Over a year, that compounds into something I refer back to constantly.",
+      "I write longer posts when something has clicked enough that I think someone else might benefit. The best writing rule I ever read: write the post you wish you had found six months ago."
+    ]
+  }
+]

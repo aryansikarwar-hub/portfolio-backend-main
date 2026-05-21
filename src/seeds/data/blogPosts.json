@@ -1,0 +1,320 @@
+[
+  {
+    "slug": "rest-to-graphql",
+    "id": 1,
+    "title": "Why I switched from REST to GraphQL for my last project",
+    "excerpt": "Lessons learned, what worked, what surprised me, and the gotchas I wish I'd known before flipping the API layer mid-build.",
+    "date": "April 2026",
+    "readTime": "8 min read",
+    "tags": [
+      "GraphQL",
+      "API Design"
+    ],
+    "category": "Engineering",
+    "color": "#6366f1",
+    "featured": true,
+    "content": [
+      {
+        "type": "p",
+        "text": "I had been building a dashboard on a vanilla **REST** stack for about four months when the frontend started growing in ways the backend hadn't anticipated. Every new screen needed half-a-dozen requests, each returning more data than the page actually used. I flipped to **GraphQL** mid-build. Here is what I learned."
+      },
+      {
+        "type": "h2",
+        "text": "What worked immediately"
+      },
+      {
+        "type": "p",
+        "text": "The single-endpoint pattern instantly reduced waterfalls. Pages that used to fire 6-7 sequential requests now made one. Bundle size dropped because we stopped shipping fetch logic for each endpoint."
+      },
+      {
+        "type": "list",
+        "items": [
+          "One round-trip per page load — significant on slow networks.",
+          "Types generated from the schema gave the frontend free type-safety.",
+          "Backend devs and frontend devs spoke the same vocabulary for the first time."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "What surprised me"
+      },
+      {
+        "type": "p",
+        "text": "Caching is harder. REST's URL-as-cache-key falls away — you have to think about Apollo's normalized cache or write resolvers carefully. **N+1 queries** are also easy to introduce: a clean schema can still hammer the database if you skip data-loaders."
+      },
+      {
+        "type": "quote",
+        "text": "GraphQL doesn't make data fetching simpler — it moves where the complexity lives.",
+        "author": "A senior dev I asked midway"
+      },
+      {
+        "type": "h2",
+        "text": "Would I do it again?"
+      },
+      {
+        "type": "p",
+        "text": "Yes, but on **greenfield** projects. Migrating mid-build was expensive — about 3 weeks of friction. If I had started GraphQL on day one, the project would have shipped faster overall."
+      }
+    ]
+  },
+  {
+    "slug": "framer-motion-vs-css",
+    "id": 2,
+    "title": "Framer Motion vs. CSS animations — when to reach for which",
+    "excerpt": "A practical rundown of when each tool shines, plus the performance numbers that actually matter on real devices.",
+    "date": "March 2026",
+    "readTime": "6 min read",
+    "tags": [
+      "React",
+      "Animation"
+    ],
+    "category": "Frontend",
+    "color": "#06b6d4",
+    "content": [
+      {
+        "type": "p",
+        "text": "Both tools are great. They solve different problems. After shipping a few interaction-heavy apps with both, here is the mental model I use."
+      },
+      {
+        "type": "h2",
+        "text": "Reach for CSS when…"
+      },
+      {
+        "type": "list",
+        "items": [
+          "The animation is **decorative** — hovers, pulses, a button that wobbles.",
+          "It doesn't depend on application state.",
+          "You want it to keep running even if the JS thread is busy."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Reach for Framer Motion when…"
+      },
+      {
+        "type": "list",
+        "items": [
+          "You need to animate based on **state changes** (a modal entering, a list reordering).",
+          "You want gesture-driven animations (drag, swipe, pull-to-refresh).",
+          "You need orchestration — staggered children, layout transitions, shared elements between routes."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Performance, honestly"
+      },
+      {
+        "type": "p",
+        "text": "On modern devices both are fine. On older Android phones (Snapdragon 600-class), CSS wins consistently for simple decorative motion — it doesn't fight the React reconciler. For complex orchestrated animations, Framer Motion's optimisations actually outperform what most people write by hand."
+      },
+      {
+        "type": "quote",
+        "text": "Use the smallest tool that solves the problem.",
+        "author": "Every senior engineer ever"
+      }
+    ]
+  },
+  {
+    "slug": "shipping-faster",
+    "id": 3,
+    "title": "Notes on shipping faster without breaking everything",
+    "excerpt": "Small habits that compounded into a much shorter feedback loop — and the temptations to ignore along the way.",
+    "date": "February 2026",
+    "readTime": "5 min read",
+    "tags": [
+      "Productivity",
+      "Workflow"
+    ],
+    "category": "Engineering",
+    "color": "#8b5cf6",
+    "content": [
+      {
+        "type": "p",
+        "text": "I used to think shipping fast meant typing fast. It does not. It means **shortening the feedback loop** between writing code and knowing whether it works. Here are the small habits that compounded for me."
+      },
+      {
+        "type": "h2",
+        "text": "1. Small commits, small PRs"
+      },
+      {
+        "type": "p",
+        "text": "If a PR takes more than 10 minutes to review, split it. The cost of a long-running branch is not in the code — it's in the rebase pain and the reviewer fatigue."
+      },
+      {
+        "type": "h2",
+        "text": "2. Tests for what you'd regret breaking"
+      },
+      {
+        "type": "p",
+        "text": "Not 100% coverage. Tests for the parts of the system that, if broken silently, would page you at 3am. The rest can wait."
+      },
+      {
+        "type": "h2",
+        "text": "3. Ship behind a flag"
+      },
+      {
+        "type": "p",
+        "text": "Even rough work belongs in main — gated behind a feature flag. It catches **integration issues** weeks earlier than a long-lived branch ever could."
+      },
+      {
+        "type": "h2",
+        "text": "Temptations to ignore"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Refactoring before you have shipped the feature once.",
+          "Adding abstraction for a second use-case that doesn't exist yet.",
+          "Bikeshedding the directory structure on day one."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "realtime-chat-socketio",
+    "id": 4,
+    "title": "Building a real-time chat app with Socket.io",
+    "excerpt": "A walkthrough of the architecture, the trade-offs I made for presence and message-sync, and how I'd do it differently today.",
+    "date": "January 2026",
+    "readTime": "12 min read",
+    "tags": [
+      "Node.js",
+      "WebSockets"
+    ],
+    "category": "Backend",
+    "color": "#ec4899",
+    "content": [
+      {
+        "type": "p",
+        "text": "Real-time apps look simple until you scale them. Here's how I built a multi-room chat with **presence**, **message history**, and **typing indicators** — and what I'd change today."
+      },
+      {
+        "type": "h2",
+        "text": "Architecture"
+      },
+      {
+        "type": "p",
+        "text": "Node.js + Socket.io on the server, React on the client, **Redis** as the pub/sub layer once we needed more than one server instance. MongoDB stored message history."
+      },
+      {
+        "type": "h2",
+        "text": "The tricky parts"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Presence — knowing who's online without DDOS-ing the database.",
+          "Message ordering when the same user has multiple tabs open.",
+          "Reconnection — clients sometimes lose connection without firing 'disconnect'.",
+          "Read receipts — surprisingly expensive at scale."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "If I rebuilt it today"
+      },
+      {
+        "type": "p",
+        "text": "I'd start with a hosted service like **Liveblocks** or **PartyKit** for everything except the storage layer. Real-time infra is a deep rabbit hole and the hosted options are good now."
+      }
+    ]
+  },
+  {
+    "slug": "typescript-patterns",
+    "id": 5,
+    "title": "TypeScript patterns I use every day",
+    "excerpt": "A small collection of patterns — utility types, branded types, exhaustive checks — that pay back the type cost many times over.",
+    "date": "December 2025",
+    "readTime": "7 min read",
+    "tags": [
+      "TypeScript"
+    ],
+    "category": "Frontend",
+    "color": "#f59e0b",
+    "content": [
+      {
+        "type": "p",
+        "text": "TypeScript can feel like overhead until you build the habit of reaching for a handful of patterns. Once they click, they save hours every week."
+      },
+      {
+        "type": "h2",
+        "text": "1. Branded types for IDs"
+      },
+      {
+        "type": "p",
+        "text": "If you have `UserId` and `PostId`, a plain `string` lets you pass them interchangeably. A **branded type** prevents that at compile time with zero runtime cost."
+      },
+      {
+        "type": "code",
+        "language": "ts",
+        "code": "type UserId = string & { readonly __brand: 'UserId' }\ntype PostId = string & { readonly __brand: 'PostId' }"
+      },
+      {
+        "type": "h2",
+        "text": "2. Exhaustive switch checks"
+      },
+      {
+        "type": "p",
+        "text": "When you add a new variant to a union, you want every relevant switch to break — loudly. The trick: a `never`-typed default case."
+      },
+      {
+        "type": "code",
+        "language": "ts",
+        "code": "function handle(s: 'a' | 'b'): string {\n  switch (s) {\n    case 'a': return 'one'\n    case 'b': return 'two'\n    default: {\n      const _: never = s\n      return _\n    }\n  }\n}"
+      },
+      {
+        "type": "h2",
+        "text": "3. The unknown type"
+      },
+      {
+        "type": "p",
+        "text": "When you reach for `any`, reach for `unknown` first. It forces you to validate before using — exactly what you want at API boundaries."
+      }
+    ]
+  },
+  {
+    "slug": "today-i-learned",
+    "id": 6,
+    "title": "Why I keep a 'today I learned' log and what it taught me",
+    "excerpt": "The simple file that improved my engineering more than any course. Two minutes a day, compounding.",
+    "date": "November 2025",
+    "readTime": "4 min read",
+    "tags": [
+      "Learning",
+      "Career"
+    ],
+    "category": "Career",
+    "color": "#22c55e",
+    "content": [
+      {
+        "type": "p",
+        "text": "Every day, before I close my laptop, I open a file called **til.md** and write down one thing I learned. Sometimes it's a CLI flag I didn't know about. Sometimes it's a debugging insight that saved me hours. The file is now 3 years old."
+      },
+      {
+        "type": "h2",
+        "text": "Why it works"
+      },
+      {
+        "type": "list",
+        "items": [
+          "The act of writing forces you to **articulate** what you learned — which exposes the gaps.",
+          "Search across years of TILs is a personal Stack Overflow tuned to your own stack.",
+          "Reviewing it monthly reveals patterns — am I learning new things, or just stuck on the same problems?"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "How to start"
+      },
+      {
+        "type": "p",
+        "text": "Make a single markdown file. Add a date header. Write one bullet. Close it. That's it. Don't over-engineer it — the second you reach for a fancy tool, the habit dies."
+      },
+      {
+        "type": "quote",
+        "text": "An hour of learning a week compounds faster than people think.",
+        "author": "Me, to myself, on hour zero"
+      }
+    ]
+  }
+]
