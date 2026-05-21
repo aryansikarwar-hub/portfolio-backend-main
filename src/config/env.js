@@ -25,8 +25,13 @@ const schema = z.object({
     FRONTEND_URL: z.string().url().default('http://localhost:3000'),
     COOKIE_DOMAIN: z.string().optional(),
 
-    // Email (Nodemailer over Gmail SMTP — use a Gmail App Password, NOT your
-    // normal Gmail password. See SETUP-EMAIL.md for the 2-minute walkthrough.)
+    // Email — preferred: Resend (HTTPS, works on Render free tier).
+    // Get a free API key at https://resend.com (3,000 emails/month free).
+    RESEND_API_KEY: z.string().optional(),
+
+    // Email fallback (Nodemailer over SMTP — Gmail App Password). Note: many
+    // free hosts (incl. Render free tier) BLOCK outbound SMTP, so prefer Resend
+    // in production. See SETUP-EMAIL.md.
     SMTP_HOST: z.string().default('smtp.gmail.com'),
     SMTP_PORT: z.coerce.number().int().positive().default(587),
     SMTP_SECURE: z
@@ -35,9 +40,10 @@ const schema = z.object({
         .transform(v => v === 'true'),
     SMTP_USER: z.string().email().optional(),       // your full gmail address
     SMTP_PASS: z.string().optional(),               // 16-char Gmail App Password
-    // For Gmail, the From is forced to your authenticated address anyway, so a
-    // friendly display name + your gmail is the safest default.
-    MAIL_FROM: z.string().default('Portfolio Contact <aryansinghsikarwar518@gmail.com>'),
+    // Default From. With no verified domain on Resend, you MUST send from
+    // "onboarding@resend.dev". Once you verify your own domain, switch this to
+    // something like "Portfolio <hello@yourdomain.com>".
+    MAIL_FROM: z.string().default('Portfolio Contact <onboarding@resend.dev>'),
     MAIL_TO_ADMIN: z.string().email().optional(),   // where new messages land (your gmail)
 
     // Cloudinary (image uploads). Optional — uploads endpoint 503s if missing.
