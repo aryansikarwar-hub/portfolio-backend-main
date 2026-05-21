@@ -32,4 +32,7 @@ export class ApiError extends Error {
     static tooMany(message = 'Too many requests', opts) {
         return new ApiError(429, message, opts)
     }
+    static internal(message = 'Internal server error', opts) {
+        return new ApiError(500, message, opts)
+    }
 }

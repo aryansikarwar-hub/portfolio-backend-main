@@ -25,17 +25,20 @@ const schema = z.object({
     FRONTEND_URL: z.string().url().default('http://localhost:3000'),
     COOKIE_DOMAIN: z.string().optional(),
 
-    // Email (Nodemailer over SMTP — Gmail App Password works out of the box)
+    // Email (Nodemailer over Gmail SMTP — use a Gmail App Password, NOT your
+    // normal Gmail password. See SETUP-EMAIL.md for the 2-minute walkthrough.)
     SMTP_HOST: z.string().default('smtp.gmail.com'),
     SMTP_PORT: z.coerce.number().int().positive().default(587),
     SMTP_SECURE: z
         .string()
         .default('false')
         .transform(v => v === 'true'),
-    SMTP_USER: z.string().email().optional(),
-    SMTP_PASS: z.string().optional(),
-    MAIL_FROM: z.string().default('Aryan Sikarwar <no-reply@aryansikarwar.dev>'),
-    MAIL_TO_ADMIN: z.string().email().optional(),
+    SMTP_USER: z.string().email().optional(),       // your full gmail address
+    SMTP_PASS: z.string().optional(),               // 16-char Gmail App Password
+    // For Gmail, the From is forced to your authenticated address anyway, so a
+    // friendly display name + your gmail is the safest default.
+    MAIL_FROM: z.string().default('Portfolio Contact <aryansinghsikarwar518@gmail.com>'),
+    MAIL_TO_ADMIN: z.string().email().optional(),   // where new messages land (your gmail)
 
     // Cloudinary (image uploads). Optional — uploads endpoint 503s if missing.
     CLOUDINARY_CLOUD_NAME: z.string().optional(),

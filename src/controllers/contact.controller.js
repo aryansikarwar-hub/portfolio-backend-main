@@ -14,31 +14,58 @@ export const submit = asyncHandler(async (req, res) => {
 
     const { name, email, subject, message } = req.body
 
-    const saved = await ContactMessage.create({
-        name,
-        email,
-        subject,
-        message,
-        ip: req.ip,
-        userAgent: req.get('user-agent') || '',
-        referrer: req.get('referer') || '',
-    })
-
-    // Fire-and-forget emails — we don't make the user wait on SMTP, and
-    // we don't fail the request if the email layer is misconfigured.
-    if (env.MAIL_TO_ADMIN) {
-        const tpl = emails.contactAdmin({ name, email, subject, message })
-        sendMail({ to: env.MAIL_TO_ADMIN, ...tpl, replyTo: email })
-            .catch(err => logger.error('contactAdmin email failed', { message: err.message }))
+    // 1) Best-effort persist. We don't want a Mongo hiccup to stop the email
+    //    from reaching your inbox — the email is the part that actually matters
+    //    to you. If the DB is unavailable we log it and carry on.
+    let savedId = null
+    let savedAt = new Date()
+    try {
+        const saved = await ContactMessage.create({
+            name,
+            email,
+            subject,
+            message,
+            ip: req.ip,
+            userAgent: req.get('user-agent') || '',
+            referrer: req.get('referer') || '',
+        })
+        savedId = saved._id
+        savedAt = saved.createdAt
+    } catch (err) {
+        logger.error('ContactMessage save failed (continuing to email)', { message: err.message })
     }
 
+    // 2) Send the admin notification to YOUR inbox, and wait for the result so
+    //    we can tell the user honestly whether it went through.
+    const adminTo = env.MAIL_TO_ADMIN || env.SMTP_USER
+    let emailDelivered = false
+
+    if (adminTo) {
+        const tpl = emails.contactAdmin({ name, email, subject, message })
+        const result = await sendMail({ to: adminTo, ...tpl, replyTo: email })
+        emailDelivered = result.ok
+        if (!result.ok) {
+            logger.error('contactAdmin email failed', { reason: result.reason })
+        }
+    } else {
+        logger.warn('No MAIL_TO_ADMIN / SMTP_USER configured — admin email skipped')
+    }
+
+    // 3) Fire-and-forget auto-reply to the sender. Failure here is non-fatal.
     const reply = emails.contactAutoReply({ name })
     sendMail({ to: email, ...reply })
         .catch(err => logger.error('contactAutoReply email failed', { message: err.message }))
 
+    // If nothing was stored AND the email didn't go out, the submission is lost
+    // — surface a real error so the user can retry instead of getting a false
+    // "success" toast.
+    if (!savedId && !emailDelivered) {
+        throw ApiError.internal('Could not deliver your message right now. Please try again or email me directly.')
+    }
+
     res.status(201).json({
         success: true,
-        data: { id: saved._id, createdAt: saved.createdAt },
+        data: { id: savedId, createdAt: savedAt, emailDelivered },
         message: "Message received. I'll get back to you within 1-2 days.",
     })
 })

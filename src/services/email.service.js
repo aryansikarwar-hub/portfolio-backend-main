@@ -10,6 +10,21 @@ function buildTransporter() {
         logger.warn('SMTP_USER / SMTP_PASS not set — outbound email is disabled')
         return null
     }
+
+    // If we're talking to Gmail, use Nodemailer's built-in "gmail" service.
+    // It picks the correct host/port/security automatically and is the most
+    // reliable way to use a Gmail App Password. For any other provider we fall
+    // back to the explicit host/port/secure SMTP settings.
+    const isGmail = /gmail\.com$/i.test(env.SMTP_HOST || '') ||
+        /@gmail\.com$/i.test(env.SMTP_USER || '')
+
+    if (isGmail) {
+        return nodemailer.createTransport({
+            service: 'gmail',
+            auth: { user: env.SMTP_USER, pass: env.SMTP_PASS },
+        })
+    }
+
     return nodemailer.createTransport({
         host: env.SMTP_HOST,
         port: env.SMTP_PORT,
@@ -41,16 +56,16 @@ async function getTransporter() {
 }
 
 /**
- * Generic send. Returns true on success, false if email is disabled or
- * the send failed — callers decide whether to surface that to the user.
- * We deliberately never throw from this layer: a failed welcome email
- * shouldn't break user signup.
+ * Generic send. Returns { ok: true } on success, or { ok: false, reason }
+ * if email is disabled or the send failed — callers decide whether to
+ * surface that to the user. We deliberately never throw from this layer:
+ * a failed welcome email shouldn't break user signup.
  */
 export async function sendMail({ to, subject, html, text, replyTo, from }) {
     const t = await getTransporter()
-    if (!t) return false
+    if (!t) return { ok: false, reason: 'email_disabled' }
     try {
-        await t.sendMail({
+        const info = await t.sendMail({
             from: from || env.MAIL_FROM,
             to,
             subject,
@@ -58,10 +73,11 @@ export async function sendMail({ to, subject, html, text, replyTo, from }) {
             text: text || stripHtml(html),
             replyTo,
         })
-        return true
+        logger.info('Email sent', { to, subject, messageId: info.messageId })
+        return { ok: true, messageId: info.messageId }
     } catch (err) {
         logger.error('sendMail failed', { to, subject, message: err.message })
-        return false
+        return { ok: false, reason: err.message }
     }
 }
 
@@ -99,12 +115,18 @@ function escape(s = '') {
 
 export const emails = {
     contactAdmin: ({ name, email, subject, message }) => ({
-        subject: `New contact message: ${subject || 'No subject'}`,
+        subject: `📩 New contact message from ${name}${subject ? ` — ${subject}` : ''}`,
         html: wrap(
             'New contact form submission',
-            `<p><strong>${escape(name)}</strong> &lt;${escape(email)}&gt;</p>
-             <p><strong>Subject:</strong> ${escape(subject || '—')}</p>
-             <p style="white-space:pre-wrap;background:#0f1117;padding:16px;border-radius:8px;">${escape(message)}</p>`
+            `<p>You just received a new message through your portfolio contact form.</p>
+             <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;">
+               <tr><td style="padding:6px 0;color:#7d7a72;width:90px;">Name</td><td style="padding:6px 0;"><strong>${escape(name)}</strong></td></tr>
+               <tr><td style="padding:6px 0;color:#7d7a72;">Email</td><td style="padding:6px 0;"><a style="color:#8ab4ff;" href="mailto:${escape(email)}">${escape(email)}</a></td></tr>
+               <tr><td style="padding:6px 0;color:#7d7a72;">Subject</td><td style="padding:6px 0;">${escape(subject || '—')}</td></tr>
+             </table>
+             <p style="margin:0 0 6px;color:#7d7a72;font-size:13px;">Message</p>
+             <p style="white-space:pre-wrap;background:#0f1117;padding:16px;border-radius:8px;margin:0 0 20px;">${escape(message)}</p>
+             <p><a href="mailto:${escape(email)}?subject=${encodeURIComponent('Re: ' + (subject || 'Your message'))}" style="display:inline-block;background:#fff;color:#06070a;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:600;">Reply to ${escape(name.split(' ')[0] || 'them')}</a></p>`
         ),
     }),
 
