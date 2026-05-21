@@ -2,19 +2,67 @@ import nodemailer from 'nodemailer'
 import { env } from '../config/env.js'
 import { logger } from '../utils/logger.js'
 
+// =========================================================================
+//  EMAIL SENDING
+//
+//  Two backends, picked automatically:
+//
+//  1. RESEND (preferred)  — set RESEND_API_KEY. Sends over plain HTTPS
+//     (port 443), so it works on hosts like Render's free tier that block
+//     outbound SMTP ports (25/465/587). This is the reliable path in prod.
+//
+//  2. SMTP (fallback)     — set SMTP_USER + SMTP_PASS (e.g. a Gmail App
+//     Password). Works great locally / on hosts that allow SMTP.
+//
+//  If neither is configured, email is disabled (logged, never throws).
+// =========================================================================
+
+// ---- Backend 1: Resend (HTTP API) ---------------------------------------
+
+async function sendViaResend({ to, subject, html, text, replyTo, from }) {
+    try {
+        const res = await fetch('https://api.resend.com/emails', {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${env.RESEND_API_KEY}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                from: from || env.MAIL_FROM,
+                to: Array.isArray(to) ? to : [to],
+                subject,
+                html,
+                text: text || stripHtml(html),
+                ...(replyTo ? { reply_to: replyTo } : {}),
+            }),
+        })
+
+        const data = await res.json().catch(() => ({}))
+        if (!res.ok) {
+            const reason = data?.message || data?.error?.message || `HTTP ${res.status}`
+            logger.error('Resend send failed', { to, subject, reason })
+            return { ok: false, reason }
+        }
+        logger.info('Email sent via Resend', { to, subject, id: data?.id })
+        return { ok: true, messageId: data?.id }
+    } catch (err) {
+        logger.error('Resend send threw', { to, subject, message: err.message })
+        return { ok: false, reason: err.message }
+    }
+}
+
+// ---- Backend 2: SMTP (Nodemailer) ---------------------------------------
+
 let transporter = null
 let initPromise = null
 
 function buildTransporter() {
     if (!env.SMTP_USER || !env.SMTP_PASS) {
-        logger.warn('SMTP_USER / SMTP_PASS not set — outbound email is disabled')
+        logger.warn('SMTP_USER / SMTP_PASS not set — SMTP backend disabled')
         return null
     }
 
     // If we're talking to Gmail, use Nodemailer's built-in "gmail" service.
-    // It picks the correct host/port/security automatically and is the most
-    // reliable way to use a Gmail App Password. For any other provider we fall
-    // back to the explicit host/port/secure SMTP settings.
     const isGmail = /gmail\.com$/i.test(env.SMTP_HOST || '') ||
         /@gmail\.com$/i.test(env.SMTP_USER || '')
 
@@ -47,7 +95,6 @@ async function getTransporter() {
             return t
         } catch (err) {
             logger.error('SMTP transport verification failed', { message: err.message })
-            // Don't keep the broken transporter — try again next call.
             initPromise = null
             return null
         }
@@ -55,13 +102,7 @@ async function getTransporter() {
     return initPromise
 }
 
-/**
- * Generic send. Returns { ok: true } on success, or { ok: false, reason }
- * if email is disabled or the send failed — callers decide whether to
- * surface that to the user. We deliberately never throw from this layer:
- * a failed welcome email shouldn't break user signup.
- */
-export async function sendMail({ to, subject, html, text, replyTo, from }) {
+async function sendViaSmtp({ to, subject, html, text, replyTo, from }) {
     const t = await getTransporter()
     if (!t) return { ok: false, reason: 'email_disabled' }
     try {
@@ -73,12 +114,29 @@ export async function sendMail({ to, subject, html, text, replyTo, from }) {
             text: text || stripHtml(html),
             replyTo,
         })
-        logger.info('Email sent', { to, subject, messageId: info.messageId })
+        logger.info('Email sent via SMTP', { to, subject, messageId: info.messageId })
         return { ok: true, messageId: info.messageId }
     } catch (err) {
-        logger.error('sendMail failed', { to, subject, message: err.message })
+        logger.error('SMTP send failed', { to, subject, message: err.message })
         return { ok: false, reason: err.message }
     }
+}
+
+// ---- Public API ---------------------------------------------------------
+
+/**
+ * Generic send. Returns { ok: true } on success, or { ok: false, reason }.
+ * Prefers Resend (HTTPS, host-friendly), falls back to SMTP. Never throws.
+ */
+export async function sendMail(opts) {
+    if (env.RESEND_API_KEY) {
+        return sendViaResend(opts)
+    }
+    if (env.SMTP_USER && env.SMTP_PASS) {
+        return sendViaSmtp(opts)
+    }
+    logger.warn('No email backend configured (set RESEND_API_KEY or SMTP_USER/PASS)')
+    return { ok: false, reason: 'email_disabled' }
 }
 
 function stripHtml(html = '') {
